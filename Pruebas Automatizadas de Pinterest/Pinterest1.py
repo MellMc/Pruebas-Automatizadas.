@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from Capturas import capturar_pantalla
 import time
 
 def crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento):
@@ -10,16 +11,21 @@ def crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento):
         driver = webdriver.Chrome()
         driver.get("https://www.pinterest.es/business/create/")
 
+        capturar_pantalla("paso_1_inicio.png")
+
         # Esperar a que se cargue la página y ubicar los campos de creación de cuenta
         WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "email")))
         correo = driver.find_element(By.NAME, "email")
-        contrasena = driver.find_element(By.NAME, "password")
-        fechaNacimiento = driver.find_element(By.ID, "birthdate")
+        contrasenaInput = driver.find_element(By.NAME, "password")
+        fechaNacimientoInput = driver.find_element(By.ID, "birthdate")
+
+        # Tomar captura de pantalla antes de ingresar los datos
+        capturar_pantalla("paso_2_ingreso_datos.png")
 
         # Ingresar correo electrónico, contraseña y fecha de nacimiento para la cuenta de empresa
         correo.send_keys(correo_empresa)
-        contrasena.send_keys(contrasena)
-        fechaNacimiento.send_keys(fecha_nacimiento)
+        contrasenaInput.send_keys(contrasena)
+        fechaNacimientoInput.send_keys(fecha_nacimiento)
 
         # Simular clic en el botón de "Crear"
         botonCrear = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//button[@type='submit' and contains(., 'Crear cuenta')]")))
@@ -30,6 +36,9 @@ def crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento):
         time.sleep(10)
 
         print("Cuenta de empresa creada exitosamente en Pinterest.")
+
+        # Tomar captura de pantalla después de crear la cuenta
+        capturar_pantalla("paso_3_exito.png")
 
     except Exception as e:
         print(f"Error al crear cuenta de empresa en Pinterest: {e}")
