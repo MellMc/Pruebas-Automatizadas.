@@ -43,7 +43,7 @@ def ver_galeria_pinterest():
         driver.switch_to.window(driver.window_handles[1])
 
         # Esperar a que se cargue completamente la página de la galería
-        time.sleep(5)  # Puedes ajustar el tiempo de espera según sea necesario
+        time.sleep(10)  # Puedes ajustar el tiempo de espera según sea necesario
 
         # Captura después de abrir la galería
         capturar_pantalla("paso_4_galeria_abierta.png")

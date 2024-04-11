@@ -50,7 +50,7 @@ def crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento):
         driver.quit()
 
 # función para explorar el equipo de Pinterest
-correo_empresa = "correo_empresa4@gmail.com"
+correo_empresa = "correo_empresa5@gmail.com"
 contrasena = "S3gur1d@djngir90"
 fecha_nacimiento = "01/01/1990"  # Ajusta la fecha según sea necesario
 crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento)
