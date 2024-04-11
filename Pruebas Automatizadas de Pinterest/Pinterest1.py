@@ -11,6 +11,7 @@ def crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento):
         driver = webdriver.Chrome()
         driver.get("https://www.pinterest.es/business/create/")
 
+       # Tomar captura de pantalla antes de ingresar los datos
         capturar_pantalla("paso_1_inicio.png")
 
         # Esperar a que se cargue la página y ubicar los campos de creación de cuenta
@@ -19,13 +20,15 @@ def crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento):
         contrasenaInput = driver.find_element(By.NAME, "password")
         fechaNacimientoInput = driver.find_element(By.ID, "birthdate")
 
-        # Tomar captura de pantalla antes de ingresar los datos
-        capturar_pantalla("paso_2_ingreso_datos.png")
 
         # Ingresar correo electrónico, contraseña y fecha de nacimiento para la cuenta de empresa
         correo.send_keys(correo_empresa)
         contrasenaInput.send_keys(contrasena)
         fechaNacimientoInput.send_keys(fecha_nacimiento)
+
+       # Tomar captura de pantalla luego  de ingresar los datos
+        capturar_pantalla("paso_2_ingreso_datos.png")
+
 
         # Simular clic en el botón de "Crear"
         botonCrear = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//button[@type='submit' and contains(., 'Crear cuenta')]")))
@@ -47,7 +50,7 @@ def crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento):
         driver.quit()
 
 # función para explorar el equipo de Pinterest
-correo_empresa = "correo_empresa1@gmail.com"
+correo_empresa = "correo_empresa3@gmail.com"
 contrasena = "S3gur1d@djngir90"
 fecha_nacimiento = "01/01/1990"  # Ajusta la fecha según sea necesario
 crear_cuenta_empresa(correo_empresa, contrasena, fecha_nacimiento)

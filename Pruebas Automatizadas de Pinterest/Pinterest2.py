@@ -49,6 +49,6 @@ def iniciar_sesion_pinterest(correo_usuario, contrasena):
         driver.quit()
 
 # función para explorar el equipo de Pinterest
-correo_usuario = "correo_empresa1@gmail.com"
+correo_usuario = "correo_empresa3@gmail.com"
 contrasena = "S3gur1d@djngir90"
 iniciar_sesion_pinterest(correo_usuario, contrasena)

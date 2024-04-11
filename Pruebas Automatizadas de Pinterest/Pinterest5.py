@@ -16,7 +16,7 @@ def explorar_pinterest():
 
         # Hacer scroll hasta la sección "Descubre Intereses"
         driver.execute_script("arguments[0].scrollIntoView();", driver.find_element(By.XPATH, "//h2[@class='lH1 dyH iFc H2s sAJ X8m tg7 IZT' and contains(text(), 'Descubre intereses')]"))
-        capturar_pantalla("paso_1_pagina_principal.png")  # Captura de la página principal de Pinterest
+        capturar_pantalla("paso_2_pagina_principal.png")  # Captura de la página principal de Pinterest
         time.sleep(1)  # Esperar un segundo después del scroll
 
         # Hacer clic en la categoría de Arte
